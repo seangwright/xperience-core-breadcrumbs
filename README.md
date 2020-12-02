@@ -4,6 +4,12 @@ This is a widget for Xperience .NET Core websites which use [Content Tree-Based 
 
 ![screenshot](/Components/Widgets/BreadcrumbsWidget/screenshot.png)
 
+## Installation
+
+1. Click the **Code** button to clone the repository locally or download the .ZIP package.
+2. Copy the contents of the repository into your .NET Core website project, overwriting when necessary. The `/Components` folder should be placed on the root of the project files.
+3. Build and [deploy](https://docs.xperience.io/developing-websites/developing-xperience-applications-using-asp-net-core/deploying-and-hosting-asp-net-core-applications) the website.
+
 ## Adding the widget to a page
 
 The widget can be added to any page which uses the [page builder](https://docs.xperience.io/developing-websites/page-builder-development/creating-pages-with-editable-areas). It has 4 properties:
