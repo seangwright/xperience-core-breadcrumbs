@@ -17,7 +17,7 @@ namespace Xperience.Components.Widgets.BreadcrumbsWidget
         [EditingComponent(TextInputComponent.IDENTIFIER, Order = 4, Label = "Container class", DefaultValue = "breadcrumb-container")]
         public string ClassName { get; set; }
 
-        public void SetDefaults()
+        public BreadcrumbsWidgetProperties()
         {
             Separator = ">";
             ShowSiteLink = true;
