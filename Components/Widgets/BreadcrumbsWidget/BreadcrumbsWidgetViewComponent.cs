@@ -16,6 +16,14 @@ namespace Xperience.Components.Widgets.BreadcrumbsWidget
     public class BreadcrumbsWidgetViewComponent : ViewComponent
     {
         public const string IDENTIFIER = "Xperience.BreadcrumbsWidget";
+        private readonly IPageUrlRetriever pageUrlRetriever;
+        private readonly IPageDataContextRetriever pageDataContextRetriever;
+
+        public BreadcrumbsWidgetViewComponent(IPageUrlRetriever pageUrlRetriever, IPageDataContextRetriever pageDataContextRetriever)
+        {
+            this.pageUrlRetriever = pageUrlRetriever;
+            this.pageDataContextRetriever = pageDataContextRetriever;
+        }
 
         public ViewViewComponentResult Invoke(ComponentViewModel<BreadcrumbsWidgetProperties> viewModel)
         {
@@ -24,9 +32,7 @@ namespace Xperience.Components.Widgets.BreadcrumbsWidget
                 throw new ArgumentNullException(nameof(viewModel));
             }
 
-            var pageDataContextRetriever = Service.Resolve<IPageDataContextRetriever>();
             var current = pageDataContextRetriever.Retrieve<TreeNode>().Page;
-
             var hierarchy = GetHierarchy(current, viewModel.Properties.ShowSiteLink, viewModel.Properties.ShowContainers);
             var model = new BreadcrumbsWidgetViewModel()
             {
@@ -40,8 +46,6 @@ namespace Xperience.Components.Widgets.BreadcrumbsWidget
 
         public IEnumerable<BreadcrumbItem> GetHierarchy(TreeNode current, bool addSiteLink, bool showContainers)
         {
-            var pageUrlRetriever = Service.Resolve<IPageUrlRetriever>();
-
             // Add current page
             var ret = new List<BreadcrumbItem>();
             ret.Add(new BreadcrumbItem()
@@ -63,11 +67,10 @@ namespace Xperience.Components.Widgets.BreadcrumbsWidget
                     if (type.ClassIsCoupledClass ||
                         !type.ClassIsCoupledClass && showContainers)
                     {
-                        var url = pageUrlRetriever.Retrieve(parent).AbsoluteUrl;
                         ret.Add(new BreadcrumbItem()
                         {
                             Name = parent.DocumentName,
-                            Url = url
+                            Url = pageUrlRetriever.Retrieve(parent).AbsoluteUrl
                         });
                     }
 
