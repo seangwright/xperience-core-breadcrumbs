@@ -1,0 +1,25 @@
+﻿@using Xperience.Components.Widgets.BreadcrumbsWidget
+@model BreadcrumbsWidgetViewModel
+
+<div class="@Model.ClassName">
+    @for (var i = 0; i < Model.Hierarchy.Count(); i++)
+    {
+        var bci = Model.Hierarchy.ElementAt(i);
+        if (bci.IsCurrentPage)
+        {
+            <span class="breadcrumb-item breadcrumb-current-page">@bci.Name</span>
+        }
+        else if (bci.Url == null)
+        {
+            <span class="breadcrumb-item">@bci.Name</span>
+        }
+        else
+        {
+            <span class="breadcrumb-item"><a href="@bci.Url">@bci.Name</a></span>;
+        }
+        if (bci != Model.Hierarchy.Last())
+        {
+            @Html.Raw($" {Model.Separator} ");
+        }
+    }
+</div>
