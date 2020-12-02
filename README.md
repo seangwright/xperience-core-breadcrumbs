@@ -21,7 +21,7 @@ The widget can be added to any page which uses the [page builder](https://docs.x
 
 ## Adding breadcrumbs to views
 
-You can also add breadcrumbs directly to any view, such as the main **_Layout.cshtml**. Add the following to the view:
+You can also [add the widget directly to any view](https://docs.xperience.io/developing-websites/developing-xperience-applications-using-asp-net-core/page-builder-development-in-asp-net-core/rendering-widgets-directly-in-asp-net-core), such as the main **_Layout.cshtml**. Add the following to the view:
 
 ```
 @using Kentico.PageBuilder.Web.Mvc
