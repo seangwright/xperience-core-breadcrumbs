@@ -31,3 +31,15 @@ The breadcrumbs will be initialized with default properties. To specify your own
     Separator = ">"
 })
 ```
+
+## Compatibility
+
+This code is only available for use on Kentico Xperience 13 websites using the [.NET Core development model](https://docs.xperience.io/developing-websites/developing-xperience-applications-using-asp-net-core). The website must be using the [content tree-based routing](https://docs.xperience.io/developing-websites/implementing-routing/content-tree-based-routing) model for the breadcrumbs to display properly.
+
+## Feedback & Contributing
+
+Check out the [contributing](https://github.com/kentico-ericd/xperience-core-breadcrumbs/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions, and begin contributing.
+
+## License
+
+The repository is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
