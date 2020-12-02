@@ -30,7 +30,6 @@ You can also add breadcrumbs directly to any view, such as the main **_Layout.cs
 @using Xperience.Components.Widgets.BreadcrumbsWidget
 
 @await Html.Kentico().RenderStandaloneWidgetAsync(BreadcrumbsWidgetViewComponent.IDENTIFIER, new BreadcrumbsWidgetProperties())
-
 ```
 The breadcrumbs will be initialized with default properties. To specify your own properties, pass an instance of `BreadcrumbsWidgetProperties`:
 
