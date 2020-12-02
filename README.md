@@ -24,18 +24,27 @@ The widget can be added to any page which uses the [page builder](https://docs.x
 You can also add breadcrumbs directly to any view, such as the main **_Layout.cshtml**. Add the following to the view:
 
 ```
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Content.Web.Mvc
+@using Kentico.Web.Mvc
 @using Xperience.Components.Widgets.BreadcrumbsWidget
-@Html.GetBreadcrumbContent()
+
+@await Html.Kentico().RenderStandaloneWidgetAsync(BreadcrumbsWidgetViewComponent.IDENTIFIER, new BreadcrumbsWidgetProperties())
+
 ```
 The breadcrumbs will be initialized with default properties. To specify your own properties, pass an instance of `BreadcrumbsWidgetProperties`:
 
 ```
-@Html.GetBreadcrumbContent(new BreadcrumbsWidgetProperties() {
-    ShowContainers = true,
-    ShowSiteLink = true,
-    ClassName = "breadcrumb-container",
-    Separator = ">"
-})
+@{
+    var widgetProperties = new BreadcrumbsWidgetProperties()
+    {
+        ShowContainers = true,
+        ShowSiteLink = true,
+        ClassName = "breadcrumb-container",
+        Separator = ">"
+    };
+    @await Html.Kentico().RenderStandaloneWidgetAsync(BreadcrumbsWidgetViewComponent.IDENTIFIER, widgetProperties);
+}
 ```
 
 ## Compatibility
